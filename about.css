@@ -1,32 +1,32 @@
 .about-content {
     background: rgba(0, 0, 0, 0.85);
-    border-radius: 12px;
-    padding: clamp(20px, 4vw, 40px);
-    margin-top: clamp(20px, 3vw, 40px);
+    border-radius: clamp(8px, 2vw, 12px);
+    padding: clamp(15px, 3vw, 30px);
+    margin-top: clamp(15px, 3vw, 30px);
     color: white;
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     opacity: 0;
     animation: fadeIn 1s ease 0.8s forwards;
-    width: min(95%, 1200px);
-    margin-inline: auto;
+    width: 100%;
 }
 
 .about-grid {
     display: grid;
-    gap: clamp(20px, 4vw, 40px);
-    max-width: 1400px;
+    gap: clamp(15px, 3vw, 30px);
+    max-width: 1200px;
     margin: 0 auto;
 }
 
 .about-text {
     text-align: left;
-    padding: clamp(10px, 2vw, 20px);
+    padding: clamp(5px, 1.5vw, 15px);
 }
 
 .about-text p {
     line-height: 1.6;
-    font-size: clamp(16px, 2.5vw, 20px);
+    font-size: clamp(15px, 2.5vw, 18px);
     letter-spacing: 0.3px;
     max-width: 70ch;
     margin: 0 auto;
@@ -36,10 +36,10 @@
     margin: 0;
     position: relative;
     width: 100%;
-    aspect-ratio: 16 / 9;
+    border-radius: clamp(4px, 1vw, 8px);
     overflow: hidden;
-    border-radius: 8px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    aspect-ratio: 16 / 9;
 }
 
 .team-image {
@@ -50,15 +50,12 @@
     transition: transform 0.3s ease;
 }
 
-/* Desktop Specific */
+/* Desktop */
 @media (min-width: 1024px) {
     .about-grid {
         grid-template-columns: 1fr 1fr;
         align-items: center;
-    }
-
-    .team-photo {
-        height: 100%;
+        gap: 40px;
     }
 
     .team-photo:hover .team-image {
@@ -71,24 +68,19 @@
     .about-text {
         text-align: center;
     }
-
-    .team-photo {
-        max-width: 800px;
-        margin: 0 auto;
-    }
 }
 
 /* Mobile */
 @media (max-width: 767px) {
     .about-content {
-        padding: 20px;
+        padding: 20px 15px;
         margin-top: 15px;
         border-radius: 8px;
     }
 
     .about-text {
         text-align: left;
-        padding: 10px;
+        padding: 0;
     }
 
     .about-text p {
@@ -97,14 +89,14 @@
 
     .team-photo {
         aspect-ratio: 4 / 3;
-        margin-top: 10px;
+        margin-top: 5px;
     }
 }
 
 /* Small Mobile */
 @media (max-width: 360px) {
     .about-content {
-        padding: 15px;
+        padding: 15px 12px;
     }
 
     .about-text p {
@@ -112,37 +104,14 @@
     }
 }
 
-/* Landscape Mode */
+/* Mobile Landscape */
 @media (max-height: 480px) and (orientation: landscape) {
     .about-content {
-        margin-top: 10px;
-        padding: 15px;
+        padding: 12px;
     }
 
     .about-grid {
         grid-template-columns: 1fr 1fr;
-        gap: 20px;
-    }
-
-    .team-photo {
-        aspect-ratio: 16 / 9;
-    }
-}
-
-/* High-res Displays */
-@media (min-width: 1920px) {
-    .about-content {
-        max-width: 1400px;
-    }
-
-    .about-text p {
-        font-size: 20px;
-    }
-}
-
-/* Ensure smooth scrolling */
-@media (prefers-reduced-motion: no-preference) {
-    html {
-        scroll-behavior: smooth;
+        gap: 15px;
     }
 }
