@@ -1,0 +1,119 @@
+/* === Contact Page Styles === */
+
+body {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                url('back.jpg');
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+}
+
+.content {
+    position: relative;
+    padding: clamp(20px, 5vh, 40px) 0;
+    text-align: center;
+    width: min(90%, 800px);
+    margin: 0 auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.banner-container {
+    margin-bottom: clamp(20px, 4vh, 40px);
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards;
+    width: 100%;
+}
+
+.banner {
+    width: 100%;
+    height: auto;
+    max-width: 600px;
+    filter: drop-shadow(0 0 20px rgba(0,0,0,0.5));
+}
+
+/* --- Contact Section --- */
+.contact-section {
+    background: rgba(0, 0, 0, 0.85);
+    padding: clamp(15px, 3vw, 30px);
+    border-radius: clamp(8px, 2vw, 12px);
+    margin-top: clamp(15px, 3vw, 30px);
+    color: white;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    opacity: 0;
+    animation: fadeIn 1s ease 0.8s forwards;
+}
+
+.contact-section h1 {
+    margin-bottom: clamp(10px, 2vw, 20px);
+}
+
+.contact-section p {
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.contact-methods {
+    text-align: left;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-methods p {
+    margin-bottom: 10px;
+}
+
+.contact-methods a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.contact-methods a:hover {
+    text-decoration: none;
+}
+
+/* --- Animations --- */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* --- Responsive --- */
+@media (max-width: 480px) {
+    .contact-section {
+        padding: 20px 15px;
+        border-radius: 8px;
+    }
+
+    .contact-methods {
+        text-align: center;
+    }
+}

@@ -1,0 +1,71 @@
+.store-section {
+    background: rgba(0, 0, 0, 0.85);
+    padding: clamp(15px, 3vw, 30px);
+    border-radius: clamp(8px, 2vw, 12px);
+    margin-top: clamp(15px, 3vw, 30px);
+    color: white;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    opacity: 0;
+    animation: fadeIn 1s ease 0.8s forwards;
+}
+
+.store-section h1 {
+    margin-bottom: clamp(15px, 2vw, 25px);
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: clamp(15px, 3vw, 30px);
+}
+
+.product-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: clamp(10px, 2vw, 20px);
+    border-radius: clamp(6px, 1.5vw, 10px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.5);
+}
+
+.product-card img {
+    width: 100%;
+    border-radius: clamp(4px, 1vw, 8px);
+    object-fit: cover;
+    margin-bottom: clamp(10px, 2vw, 15px);
+}
+
+.product-card h2 {
+    font-size: clamp(16px, 2.5vw, 20px);
+    margin: 5px 0;
+}
+
+.product-card p {
+    font-size: clamp(14px, 2vw, 16px);
+    margin-bottom: 10px;
+}
+
+.product-card button {
+    padding: clamp(8px, 2vh, 12px) clamp(15px, 3vw, 20px);
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: not-allowed;
+    transition: all 0.3s ease;
+}
+
+.product-card button:hover {
+    background: rgba(0, 0, 0, 0.8);
+    border-color: rgba(255, 255, 255, 0.3);
+}
