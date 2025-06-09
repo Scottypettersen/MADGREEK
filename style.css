@@ -1,222 +1,179 @@
+/* ==== RESET ==== */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body {
-    min-height: 100vh;
-    min-height: -webkit-fill-available; /* Fix for mobile Safari */
-    font-family: "Helvetica Neue", Arial, sans-serif;
-    background: black;
-    overflow-x: hidden;
-    overflow-y: auto;
+html, body {
+  height: 100%;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background: black;
+  overflow-x: hidden;
+  color: white;
 }
 
-html {
-    height: -webkit-fill-available; /* Fix for mobile Safari */
-}
-
+/* ==== BACKGROUND ==== */
 .background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-                url('back.jpg');
-    background-size: cover;
-    background-position: center;
-    z-index: -1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('public/back.jpg') no-repeat center center;
+  background-size: cover;
+  z-index: -1;
 }
 
+/* ==== CONTENT WRAPPER ==== */
 .content {
-    position: relative;
-    padding: clamp(20px, 5vh, 40px) 0;
-    text-align: center;
-    width: min(90%, 800px);
-    margin: 0 auto;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  max-width: 1000px;
+  margin: auto;
+  padding: 2rem 1rem;
+  text-align: center;
 }
 
+/* ==== BANNER ==== */
 .banner-container {
-    margin-bottom: clamp(20px, 4vh, 40px);
-    opacity: 0;
-    animation: fadeInUp 1s ease forwards;
-    width: 100%;
+  margin-bottom: 2rem;
+  animation: fadeInUp 1s ease forwards;
 }
 
 .banner {
-    width: 100%;
-    height: auto;
-    max-width: 600px;
-    filter: drop-shadow(0 0 20px rgba(0,0,0,0.5));
+  max-width: 100%;
+  height: auto;
+  filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.5));
 }
 
+/* ==== NAVIGATION ==== */
 nav {
-    margin: clamp(15px, 3vh, 30px) 0;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: clamp(10px, 2vw, 15px);
-    opacity: 0;
-    animation: fadeIn 0.8s ease 0.5s forwards;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+  animation: fadeIn 0.8s ease 0.5s forwards;
 }
 
 nav a {
-    color: white;
-    text-decoration: none;
-    font-size: clamp(14px, 2.5vw, 15px);
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    padding: clamp(10px, 2vh, 12px) clamp(15px, 3vw, 20px);
-    background: rgba(0, 0, 0, 0.7);
-    border: 1px solid rgba(255,255,255,0.15);
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-    min-width: min(120px, 45%);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    touch-action: manipulation;
-}
-
-nav a::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255,255,255,0.2),
-        transparent
-    );
-    transition: 0.5s;
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 0.75rem 1.25rem;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255,255,255,0.15);
+  backdrop-filter: blur(4px);
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
 }
 
 nav a:hover {
-    background: rgba(0, 0, 0, 0.8);
-    border-color: rgba(255,255,255,0.3);
-    transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255,255,255,0.3);
 }
 
-nav a:active {
-    transform: translateY(1px);
+/* ==== STORE SECTION ==== */
+.store-section {
+  background: rgba(0,0,0,0.85);
+  padding: 2rem;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.1);
+  animation: fadeIn 1s ease 0.6s forwards;
 }
 
-nav a:hover::before {
-    left: 100%;
+.store-section h1 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* ==== PRODUCT GRID ==== */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+/* ==== PRODUCT CARD ==== */
+.product-card {
+  background: rgba(255,255,255,0.05);
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.product-card img {
+  width: 100%;
+  height: auto;
+  max-height: 220px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+.product-card h2 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin: 0.5rem 0;
+}
+
+.product-card p {
+  font-size: 1rem;
+  color: #ccc;
+  margin-bottom: 1rem;
+}
+
+/* ==== SIZE DROPDOWN ==== */
+.size-label {
+  margin: 0.5rem 0 0.25rem;
+  font-size: 0.9rem;
+}
+
+.size-select {
+  padding: 0.5rem;
+  font-size: 0.9rem;
+  background: #111;
+  color: white;
+  border: 1px solid rgba(255,255,255,0.2);
+  margin-bottom: 1rem;
+  border-radius: 4px;
+}
+
+/* ==== BUY BUTTON ==== */
+.buy-btn {
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9rem;
+  background: #111;
+  color: white;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.buy-btn:hover {
+  background: #222;
+  border-color: rgba(255,255,255,0.4);
+}
+
+.buy-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ==== ANIMATIONS ==== */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
 @keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-/* Desktop */
-@media (min-width: 1024px) {
-    nav {
-        gap: 20px;
-    }
-    
-    nav a {
-        min-width: 120px;
-    }
-}
-
-/* Tablet */
-@media (max-width: 768px) {
-    .content {
-        padding: 15px 0;
-    }
-
-    nav {
-        padding: 0 10px;
-        gap: 12px;
-    }
-
-    nav a {
-        min-width: calc(50% - 12px);
-        font-size: 14px;
-    }
-}
-
-/* Mobile - Portrait */
-@media (max-width: 480px) {
-    .content {
-        width: 95%;
-        justify-content: flex-start;
-        padding-top: max(5vh, 30px);
-    }
-
-    .banner-container {
-        margin-bottom: 20px;
-    }
-
-    nav {
-        flex-direction: column;
-        width: 100%;
-        gap: 10px;
-        margin: 15px 0;
-    }
-
-    nav a {
-        width: 100%;
-        min-width: unset;
-        padding: 14px 15px;
-        font-size: 15px;
-    }
-}
-
-/* Mobile - Landscape */
-@media (max-height: 480px) and (orientation: landscape) {
-    .content {
-        padding: 10px 0;
-    }
-
-    nav {
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 8px;
-    }
-
-    nav a {
-        width: calc(33.33% - 8px);
-        padding: 8px 10px;
-        font-size: 13px;
-    }
-
-    .banner-container {
-        margin-bottom: 15px;
-    }
-}
-
-/* Fix for notched phones */
-@supports (padding: env(safe-area-inset-bottom)) {
-    .content {
-        padding-bottom: env(safe-area-inset-bottom);
-        padding-left: env(safe-area-inset-left);
-        padding-right: env(safe-area-inset-right);
-    }
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
 }

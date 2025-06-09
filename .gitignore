@@ -1,0 +1,11 @@
+# Ignore node_modules and environment config
+node_modules/
+.env
+mad-greek-backend/.env
+
+# Ignore logs
+*.log
+
+# Optional: Ignore Mac system files and VSCode settings
+.DS_Store
+.vscode/
