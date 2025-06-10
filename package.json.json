@@ -1,7 +1,5 @@
 {
   "name": "madgreek",
   "version": "1.0.0",
-  "type": "commonjs",
-  "scripts": {},
-  "license": "MIT"
+  "type": "commonjs"
 }
