@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const stripe = Stripe("pk_test_51RYCSMQ9uDBiFyIhXzLjvrOPsRUkouls9gExbGKUA20IwYflwnqiHPETA73xSxxSxblNHx8edpRA78OoYlUX7GB600zxNBUKjDY"); // Replace with your real key
+  const stripe = Stripe("pk_test_51RYCSMQ9uDBiFyIhXzLjvrOPsRUkouls9gExbGKUA20IwYflwnqiHPETA73xSxxSxblNHx8edpRA78OoYlUX7GB600zxNBUKjDY");
+
   const buttons = document.querySelectorAll(".buy-btn");
 
   buttons.forEach(button => {
