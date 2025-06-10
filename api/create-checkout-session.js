@@ -4,7 +4,20 @@ const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
 
 
 export default async function handler(req, res) {
-  if (req.method !== 'POST') {
+  if (req.method !== 'POST') {{
+  "functions": {
+    "api/*.js": {
+      "runtime": "nodejs18.x"
+    }
+  },
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/$1.js"
+    }
+  ]
+}
+
     return res.status(405).send('Method Not Allowed');
   }
 
