@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
       let size = null;
 
       if (productType === "shirt") {
-        const sizeSelect = document.getElementById("tee-size");
+        const sizeSelect = button.closest('.product-card').querySelector('.size-select');
         if (!sizeSelect || !sizeSelect.value) {
           alert("Please select a size before checking out.");
           return;
@@ -26,7 +26,13 @@ document.addEventListener("DOMContentLoaded", () => {
           body: JSON.stringify({ priceId, size })
         });
 
+        if (!res.ok) {
+          const error = await res.json();
+          throw new Error(error.error || "Failed to create checkout session");
+        }
+
         const data = await res.json();
+        console.log("Stripe Session ID:", data.sessionId);
 
         if (data.sessionId) {
           await stripe.redirectToCheckout({ sessionId: data.sessionId });
