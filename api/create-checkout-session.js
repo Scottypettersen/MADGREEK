@@ -1,9 +1,6 @@
 const Stripe = require('stripe');
 const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
 
-/**
- * Vercel-compatible CommonJS handler function
- */
 module.exports = async (req, res) => {
   if (req.method !== 'POST') {
     return res.status(405).send('Method Not Allowed');
@@ -26,19 +23,20 @@ module.exports = async (req, res) => {
       line_items: [
         {
           price: priceId,
-          quantity: 1,
-          ...(size ? { description: `Size: ${size}` } : {})
+          quantity: 1
         }
       ],
       mode: 'payment',
       success_url: `${process.env.DOMAIN}/success.html`,
-      cancel_url: `${process.env.DOMAIN}/store.html`
+      cancel_url: `${process.env.DOMAIN}/store.html`,
+      metadata: size ? { size } : {}
     });
 
+    console.log("[API] Checkout session created:", session.id);
     res.status(200).json({ sessionId: session.id });
+
   } catch (err) {
     console.error('[Stripe Checkout Error]', err);
     res.status(500).json({ error: 'Stripe session creation failed' });
-  }console.log("Stripe key present:", !!process.env.STRIPE_SECRET_KEY);
-
+  }
 };
