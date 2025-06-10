@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const stripe = Stripe('pk_test_51RYCSMQ9uDBiFyIhXzLjvrOPsRUkouls9gExbGKUA20IwYflwnqiHPETA73xSxxSxblNHx8edpRA78OoYlUX7GB600zxNBUKjD'); // 🔒 Replace with env var in production
+  const stripe = Stripe("pk_test_51RYCSMQ9uDBiFyIhXzLjvrOPsRUkouls9gExbGKUA20IwYflwnqiHPETA73xSxxSxblNHx8edpRA78OoYlUX7GB600zxNBUKjDY"); // Replace with your real key
   const buttons = document.querySelectorAll(".buy-btn");
 
   buttons.forEach(button => {
@@ -21,9 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
       try {
         const res = await fetch("/api/create-checkout-session", {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ priceId, size })
         });
 
@@ -36,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       } catch (err) {
         console.error("Checkout error:", err);
-        alert("Sorry, there was an issue starting checkout.");
+        alert("There was a problem starting checkout.");
       }
     });
   });
