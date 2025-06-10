@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const stripe = Stripe("pk_test_51RYCSGLElzji2KzsZfmmckl8RkaRD0pYk0CqgXNUbMyC3ZW862Gy1KQYZ9IIJzsbfWlNjhMYCaECaoKEQ2Iq6ko900e367cbl1");
+  const stripe = Stripe("pk_live_51RYCSGLElzji2KzsK6K6EAO4Z0UnCw431IBhgAyjykJ7AecsOt7fquUnT5UN9g6UbCe7nptLMtDxddi7qhvaX4zP00cf1R7x1z");
 
   const buttons = document.querySelectorAll(".buy-btn");
 
