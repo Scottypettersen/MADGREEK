@@ -39,5 +39,6 @@ module.exports = async (req, res) => {
   } catch (err) {
     console.error('[Stripe Checkout Error]', err);
     res.status(500).json({ error: 'Stripe session creation failed' });
-  }
+  }console.log("Stripe key present:", !!process.env.STRIPE_SECRET_KEY);
+
 };
